@@ -1,5 +1,14 @@
 let util = require('util');
-let http = require('http');
+const http = require('http');
+const port = process.env.PORT || 3000
+const server = http.createServer((req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/html');
+    res.end('<h1>Hello World</h1>');
+});
+server.listen(port, () => {
+    console.log(`Server running at port ` + port);
+});
 let Bot = require('@kikinteractive/kik');
 
 let bot = new Bot({
@@ -43,14 +52,3 @@ bot.onTextMessage((message) => {
     console.log("OWOIFY: " + output);
     console.log("");
 });
-
-let server = http
-    .createServer(bot.incoming())
-    .listen(8080, (err) => {
-        if (err) {
-            return console.log('something bad happened', err)
-        }
-        console.log('\033[2J');
-        console.log(`OwO is active`);
-        console.log("");
-    });
