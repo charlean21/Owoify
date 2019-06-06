@@ -14,7 +14,7 @@ let Bot = require('@kikinteractive/kik');
 let bot = new Bot({
     username: 'owoify',
     apiKey: 'dd2fac96-59d8-4df5-80a0-69e10f6edb62',
-    baseUrl: 'https://e59e7632.ngrok.io/incoming'
+    baseUrl: 'https://owoify.herokuapp.com/incoming'
 });
 
 bot.updateBotConfiguration();
